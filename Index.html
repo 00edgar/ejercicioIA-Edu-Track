@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduTrack – Cursos de tecnología online para profesionales colombianos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="estye.css" />
+</head>
+<body>
+  <!-- Header con autenticación dinámica -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">
+        <span class="logo__icon">📘</span>
+        <span class="logo__text">EduTrack</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+      <nav class="nav" id="main-nav">
+        <a href="#cursos" class="nav__link">Cursos</a>
+        <a href="#planes" class="nav__link">Planes</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+        <div id="auth-buttons">
+          <!-- Se llena con JS -->
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <h1 class="hero__title reveal fade-up">Domina la tecnología <span class="text--accent">que mueve al mundo</span></h1>
+          <p class="hero__subtitle reveal fade-up delay-1">Cursos en vivo y bajo demanda diseñados para desarrolladores junior y mid. Conviértete en el profesional que las empresas buscan.</p>
+          <div class="hero__buttons reveal fade-up delay-2">
+            <a href="#cursos" class="btn btn--outline">Explorar cursos</a>
+            <a href="#" class="btn btn--primary" id="hero-cta">Crear cuenta gratis</a>
+          </div>
+        </div>
+        <div class="hero__visual reveal fade-left">
+          <div class="dashboard-mockup">
+            <div class="mockup-chart"></div>
+            <div class="mockup-track">
+              <div class="mockup-node"></div>
+              <div class="mockup-node"></div>
+              <div class="mockup-node active"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estadísticas -->
+    <section class="stats" id="estadisticas">
+      <div class="container stats__grid">
+        <div class="stat-item reveal fade-up">
+          <span class="stat-item__number" id="counter-students">0</span>
+          <span class="stat-item__label">Estudiantes activos</span>
+        </div>
+        <div class="stat-item reveal fade-up delay-1">
+          <span class="stat-item__number" id="counter-courses">0</span>
+          <span class="stat-item__label">Cursos disponibles</span>
+        </div>
+        <div class="stat-item reveal fade-up delay-2">
+          <span class="stat-item__number" id="counter-satisfaction">0</span>
+          <span class="stat-item__label">% Satisfacción</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Propuesta de valor -->
+    <section class="value-prop" id="propuesta-valor">
+      <div class="container">
+        <h2 class="section-title reveal fade-up">¿Por qué elegir <span class="text--accent">EduTrack</span>?</h2>
+        <div class="value-grid">
+          <div class="glass-card value-card reveal fade-up delay-1">
+            <div class="value-card__icon">💬</div>
+            <h3>Mentorías personalizadas</h3>
+            <p>Conecta con expertos de la industria que te guían en tu aprendizaje.</p>
+          </div>
+          <div class="glass-card value-card reveal fade-up delay-2">
+            <div class="value-card__icon">🧪</div>
+            <h3>Proyectos reales</h3>
+            <p>Construye portafolio con desafíos tomados del mundo laboral.</p>
+          </div>
+          <div class="glass-card value-card reveal fade-up delay-3">
+            <div class="value-card__icon">📜</div>
+            <h3>Certificados avalados</h3>
+            <p>Reconocidos por empresas aliadas en Colombia y Latinoamérica.</p>
+          </div>
+          <div class="glass-card value-card reveal fade-up delay-4">
+            <div class="value-card__icon">♾️</div>
+            <h3>Acceso de por vida</h3>
+            <p>Aprende a tu ritmo, sin vencimientos. Siempre actualizado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cursos destacados -->
+    <section class="courses" id="cursos">
+      <div class="container">
+        <h2 class="section-title reveal fade-up">Cursos que impulsan tu carrera</h2>
+        <div class="courses__tools reveal fade-up delay-1">
+          <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Buscar curso..." />
+            <span class="search-bar__icon">🔍</span>
+          </div>
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-category="todos">Todos</button>
+            <button class="filter-btn" data-category="frontend">Frontend</button>
+            <button class="filter-btn" data-category="backend">Backend</button>
+            <button class="filter-btn" data-category="datos">Datos</button>
+            <button class="filter-btn" data-category="mobile">Mobile</button>
+          </div>
+          <span class="courses__count" id="visible-count"></span>
+        </div>
+        <div class="courses-grid" id="courses-grid">
+          <!-- dinámico -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section class="how-it-works" id="como-funciona">
+      <div class="container">
+        <h2 class="section-title reveal fade-up">Cómo funciona</h2>
+        <div class="steps">
+          <div class="step reveal fade-up delay-1">
+            <div class="step__number">01</div>
+            <h3>Elige tu ruta</h3>
+            <p>Explora rutas de aprendizaje diseñadas por mentores.</p>
+          </div>
+          <div class="step reveal fade-up delay-2">
+            <div class="step__number">02</div>
+            <h3>Aprende con proyectos</h3>
+            <p>Cada módulo incluye ejercicios prácticos y code reviews.</p>
+          </div>
+          <div class="step reveal fade-up delay-3">
+            <div class="step__number">03</div>
+            <h3>Certifícate y crece</h3>
+            <p>Obtén insignias digitales y mejora tu perfil profesional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials" id="testimonios">
+      <div class="container">
+        <h2 class="section-title reveal fade-up">Lo que dicen nuestros estudiantes</h2>
+        <div class="testimonials-carousel" id="testimonials-container">
+          <!-- dinámico -->
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prev-testimonial">←</button>
+          <button class="carousel-btn" id="next-testimonial">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planes y precios -->
+    <section class="pricing" id="planes">
+      <div class="container">
+        <h2 class="section-title reveal fade-up">Planes flexibles para ti</h2>
+        <div class="pricing-grid">
+          <div class="glass-card pricing-card reveal fade-up delay-1">
+            <h3>Básico</h3>
+            <p class="pricing-card__price">$ 0 COP<span>/mes</span></p>
+            <ul>
+              <li>✅ Acceso a 5 cursos gratuitos</li>
+              <li>✅ Foros de la comunidad</li>
+              <li>❌ Mentorías</li>
+              <li>❌ Certificados</li>
+            </ul>
+            <a href="#auth-modal" class="btn btn--outline open-auth" data-action="register">Comenzar gratis</a>
+          </div>
+          <div class="glass-card pricing-card pricing-card--popular reveal fade-up delay-2">
+            <span class="popular-badge">Más popular</span>
+            <h3>Pro</h3>
+            <p class="pricing-card__price">$ 79.900 COP<span>/mes</span></p>
+            <ul>
+              <li>✅ Todos los cursos</li>
+              <li>✅ Mentorías grupales</li>
+              <li>✅ Certificados digitales</li>
+              <li>✅ Proyectos reales</li>
+            </ul>
+            <a href="#auth-modal" class="btn btn--primary open-auth" data-action="register">Empezar ahora</a>
+          </div>
+          <div class="glass-card pricing-card reveal fade-up delay-3">
+            <h3>Equipo</h3>
+            <p class="pricing-card__price">Personalizado</p>
+            <ul>
+              <li>✅ Todo lo de Pro</li>
+              <li>✅ Dashboard admin</li>
+              <li>✅ Mentorías 1:1</li>
+              <li>✅ Soporte prioritario</li>
+            </ul>
+            <a href="#auth-modal" class="btn btn--outline open-auth" data-action="register">Contactar ventas</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2 class="section-title reveal fade-up">Preguntas frecuentes</h2>
+        <div class="faq-list" id="faq-list">
+          <!-- dinámico -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="cta-final" id="cta-final">
+      <div class="container reveal fade-up">
+        <h2 id="cta-final-text">Únete a los <span id="cta-student-count">1.200+</span> estudiantes que ya están transformando su carrera.</h2>
+        <a href="#auth-modal" class="btn btn--primary btn--large open-auth" data-action="register">Comienza ahora — es gratis</a>
+        <p class="cta-final__note">Sin tarjeta de crédito • Cancela cuando quieras</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="container footer__grid">
+      <div class="footer__form">
+        <h3>¿Listo para empezar?</h3>
+        <p style="margin-bottom:1rem">Crea tu cuenta ahora y accede a cursos gratuitos.</p>
+        <a href="#auth-modal" class="btn btn--primary btn--full open-auth" data-action="register">Registrarme</a>
+      </div>
+      <div class="footer__links">
+        <h4>Enlaces</h4>
+        <a href="#">Sobre nosotros</a>
+        <a href="#">Blog</a>
+        <a href="#">Términos y condiciones</a>
+        <a href="#">Política de privacidad</a>
+      </div>
+      <div class="footer__social">
+        <h4>Redes</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="LinkedIn">🔗</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="Instagram">📷</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 EduTrack · <span class="made-in">Hecho en Colombia con 💛</span></p>
+    </div>
+  </footer>
+
+  <!-- Modal de autenticación (registro / inicio de sesión) -->
+  <div class="modal" id="auth-modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__content glass-card">
+      <button class="modal__close" id="close-modal">✕</button>
+      <div class="modal__header">
+        <h2 id="modal-title">Inicia sesión o regístrate</h2>
+        <div class="modal__tabs">
+          <button class="tab-btn active" data-tab="login">Iniciar sesión</button>
+          <button class="tab-btn" data-tab="register">Registrarse</button>
+        </div>
+      </div>
+      <!-- Formulario de inicio de sesión -->
+      <form id="login-form" class="auth-form active">
+        <div class="form-group">
+          <label for="login-email">Correo electrónico</label>
+          <input type="email" id="login-email" placeholder="tu@correo.com" required />
+        </div>
+        <div class="form-group">
+          <label for="login-password">Contraseña</label>
+          <input type="password" id="login-password" placeholder="Tu contraseña" required />
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Iniciar sesión</button>
+        <p class="form-message" id="login-message"></p>
+      </form>
+      <!-- Formulario de registro -->
+      <form id="register-form" class="auth-form">
+        <div class="form-group">
+          <label for="register-email">Correo electrónico</label>
+          <input type="email" id="register-email" placeholder="tu@correo.com" required />
+        </div>
+        <div class="form-group">
+          <label for="register-password">Contraseña (mín. 6 caracteres)</label>
+          <input type="password" id="register-password" minlength="6" required />
+        </div>
+        <div class="form-group">
+          <label for="register-confirm">Confirmar contraseña</label>
+          <input type="password" id="register-confirm" minlength="6" required />
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Crear cuenta</button>
+        <p class="form-message" id="register-message"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal de detalle de curso (mejora adicional) -->
+  <div class="modal" id="course-modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__content glass-card">
+      <button class="modal__close" id="close-course-modal">✕</button>
+      <div id="course-detail-content">
+        <!-- Llenado dinámico -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
